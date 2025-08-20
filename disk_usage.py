@@ -3,7 +3,7 @@
 import psutil
 import sys
 
-def check_disk_usage(disk, min_absolute, min_percentage):
+def check_disk_usage(disk, min_gb, min_percentage):
     """Check if there is enough free disk space."""
     disk_usage = psutil.disk_usage(disk)
     if disk_usage.free < min_absolute or disk_usage.percent > (100 - min_percentage):
