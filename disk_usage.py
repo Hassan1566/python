@@ -11,10 +11,10 @@ def check_disk_usage(disk, min_absolute, min_percentage):
     return True
 
 # Example: 2 GB minimum free, 10% minimum free percentage
-min_absolute = 2 * 1024 * 1024 * 1024  # 2 GB
+min_gb = 2 * 1024 * 1024 * 1024  # 2 GB
 min_percentage = 10
 
-if not check_disk_usage('C:\\', min_absolute, min_percentage):
+if not check_disk_usage('C:\\', min_gb, min_percentage):
     print("Disk usage is above the threshold.")
     sys.exit(1)
 else:
