@@ -12,8 +12,8 @@ def check_disk_usage(disk, min_gb, min_percentage):
     disk_usage = psutil.disk_usage(disk)
     min_bytes = min_gb * 1024 * 1024 * 1024
     if disk_usage.free < min_bytes or disk_usage.percent > (100 - min_percentage):
-        return False
-    return True
+        return True
+    return False
 
 def check_root_full():
     """Check if the root partition is full."""
@@ -24,7 +24,7 @@ def main():
         print("Reboot is required.")
         sys.exit(1)
 
-    if not check_root_full():
+    if check_root_full():
         print("Root partition is full.")
         sys.exit(1)
     
