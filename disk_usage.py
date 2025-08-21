@@ -24,10 +24,14 @@ def main():
         (check_reboot, "Reboot is required"),
         (check_root_full, "Root partition is full."),       
     ]
+    every_check = True
     for func, msg in check:
         if func():
             print(msg)
-            sys.exit(1)
+            every_check = False
+    if every_check:
+        print("Everything is within the acceptable range.")
+    sys.exit(1)
 
     print("Everything is within the acceptable range.")
     sys.exit(0)
