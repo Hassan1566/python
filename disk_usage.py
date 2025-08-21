@@ -10,8 +10,8 @@ def check_reboot():
 def check_disk_usage(disk, min_gb, min_percentage):
     """Check if there is enough free disk space."""
     disk_usage = psutil.disk_usage(disk)
-    min_gb = min_gb * 1024 * 1024 * 1024 
-    if disk_usage.free < min_gb or disk_usage.percent > (100 - min_percentage):
+    min_bytes = min_gb * 1024 * 1024 * 1024
+    if disk_usage.free < min_bytes or disk_usage.percent > (100 - min_percentage):
         return False
     return True
 
@@ -21,9 +21,11 @@ def main():
         print("Reboot is required.")
         sys.exit(1)
 
-    if not check_disk_usage('C:\\', 2, 10):
+    if not check_disk_usage("C:\\", 2, 10):
         print("Disk usage is above the threshold.")
         sys.exit(1)
     
     print("Everything is within the acceptable range.")
     sys.exit(0)
+
+main()
