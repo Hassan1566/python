@@ -20,14 +20,15 @@ def check_root_full():
     return check_disk_usage("C://", 2, 10)
 
 def main():
-    if check_reboot():
-        print("Reboot is required.")
-        sys.exit(1)
+    check = [
+        (check_reboot, "Reboot is required"),
+        (check_root_full, "Root partition is full."),       
+    ]
+    for func, msg in check:
+        if func():
+            print(msg)
+            sys.exit(1)
 
-    if check_root_full():
-        print("Root partition is full.")
-        sys.exit(1)
-    
     print("Everything is within the acceptable range.")
     sys.exit(0)
 
