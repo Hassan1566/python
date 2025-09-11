@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- 
 import logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s -  %(levelname)s -  %(message)s')
-logging.disable(logging.DEBUG)
+logging.disable(logging.DEBUG)  
 logging.debug('Start of program')
 
 
