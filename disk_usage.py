@@ -17,7 +17,7 @@ def check_disk_usage(disk, min_gb, min_percentage):
 
 def check_root_full():
     """Check if the root partition is full."""
-    return check_disk_usage("C://", 2, 10)
+    return check_disk_usage(os.path.abspath(os.sep), 2, 10)
 
 def check_no_network():
     """Check if there is no network connectivity."""
