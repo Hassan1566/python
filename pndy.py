@@ -38,8 +38,8 @@ ax.set_ylabel("Revenue")
 
 
 fig, ax = plt.subplots(figsize=(8,6))
-df['revenue'].plot(kind='hist', bins=20, ax=ax)
+df['revenue'].plot(kind='hist', bins=20, ax=ax, density=True)
 ax.set_title("Revenue Distribution")
 ax.set_xlabel("Revenue")
-ax.set_ylabel("Frequency")
+ax.set_ylabel("Density")
 plt.show()
